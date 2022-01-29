@@ -1,8 +1,8 @@
 {
-  "name": "sid",
-  "version": "0.0.1",
+  "name": "sid-api",
+  "version": "0.0.2",
   "description": "s.id shortener",
-  "main": "./src/index.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -17,12 +17,12 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Gimenz/sid.git"
+    "url": "git+https://github.com/Gimenz/sid-api.git"
   },
   "bugs": {
-    "url": "https://github.com/Gimenz/sid/issues"
+    "url": "https://github.com/Gimenz/sid-api/issues"
   },
-  "homepage": "https://github.com/Gimenz/sid#readme",
+  "homepage": "https://github.com/Gimenz/sid-api#readme",
   "dependencies": {
     "axios": "^0.25.0"
   }
