@@ -1,17 +1,22 @@
 # 🍚 sid
 **s.id url shortener Un-Official Api Wrapper**
 
-simple unofficial api wrapper of [s.id](https://s.id "s.id")
+simple unofficial api wrapper for [s.id](https://s.id "s.id")
+
+## 👨‍🍳 Install
+
+`npm i github:Gimenz/sid`
 
 ## 📔 Example
 Do Note! that the token are required for most all requests.
 ```js
-const sID = require('./src/index');
+const sID = require('sid');
 const s = new sID();
 
 (async () => {
     try {
         // to use most all features, you will needed token, get token easily with getToken() function
+		// register account here https://home.s.id/id/auth/register
         const token = await s.getToken('yout email', 'your password');
         console.log(token);
 

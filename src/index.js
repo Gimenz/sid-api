@@ -9,9 +9,6 @@ class SID {
             email,
             password
         }
-        if (this.credentials) {
-            this.getToken(this.credentials.email, this.credentials.password)
-        }
         /** @private */
         this.cookiePath = path.join(__dirname + '/config/cookie.json')
         /** @private */
