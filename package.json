@@ -15,6 +15,14 @@
   ],
   "author": "Gimenz",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gimenz/sid.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Gimenz/sid/issues"
+  },
+  "homepage": "https://github.com/Gimenz/sid#readme",
   "dependencies": {
     "axios": "^0.25.0"
   }
