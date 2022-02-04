@@ -29,6 +29,12 @@ class SID {
     useExistCookie = async () => {
         if (this.isCookieExists()) {
             let cookieJson = JSON.parse(this.readCookie())
+            const parsed = parseCookie(cookieJson.cookie)
+            if (parsed.expire <= Math.floor((Date.now() / 1000))) {
+                console.log('token updated');
+                return await this.getToken()
+            }
+            console.log('log in using existing token');
             return cookieJson
         } else if (this.credentials.email !== '' || this.credentials.password !== '') {
             return await this.getToken()
@@ -76,8 +82,8 @@ class SID {
         }
         const response = await this.makeRequest('/api/login', payload, 'POST')
         if (response.status !== 200) throw `${response.data}`
-        this.headers['cookie'] = `token=${response.data.token};`
-        fs.writeFileSync(this.cookiePath, JSON.stringify(this.headers))
+        this.headers['cookie'] = `token=${response.data.token}; expire=${new Date(response.data.expire).getTime() / 1000};`
+        fs.writeFileSync(this.cookiePath, JSON.stringify(this.headers, null, 4))
         return this.headers
     }
 
@@ -124,6 +130,22 @@ class SID {
         const response = await this.makeRequest('/api/user/links?page=' + page, null, null, { headers: await this.useExistCookie() })
         return response.data
     }
+}
+
+
+/**
+ * 
+ * @param {string} str 
+ * @returns 
+ */
+function parseCookie(str) {
+    return str.split(';')
+        .map(v => v.trim().split('='))
+        .reduce((acc, v) => {
+            acc[decodeURIComponent(v[0])] = decodeURIComponent(v[1]);
+            delete acc['']
+            return acc;
+        }, {});
 }
 
 module.exports = { SID }
