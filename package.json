@@ -1,6 +1,6 @@
 {
   "name": "sid-api",
-  "version": "0.0.21",
+  "version": "0.0.22",
   "description": "s.id shortener",
   "main": "src/index.js",
   "scripts": {
@@ -24,6 +24,6 @@
   },
   "homepage": "https://github.com/Gimenz/sid-api#readme",
   "dependencies": {
-    "axios": "^0.25.0"
+    "axios": "^0.26.1"
   }
 }
